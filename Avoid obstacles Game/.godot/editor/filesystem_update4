@@ -1,0 +1,6 @@
+res://main_scene.tscn
+res://player.tscn
+res://Prefabs/player.tscn
+res://Prefabs/object.tscn
+res://Player/player.gd
+res://Player/player.tscn
