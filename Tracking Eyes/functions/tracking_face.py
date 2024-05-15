@@ -1,10 +1,11 @@
 import cv2
-from . import control_cursor
+from . import control_cursor as cc
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 def openTracking():
     cap = cv2.VideoCapture(0)
+    # cap = cv2.VideoCapture('functions/Test.mp4')
     value = 42
     cx = 0 
     cy = 0
@@ -25,15 +26,18 @@ def openTracking():
         faces = face_cascade.detectMultiScale(gray_frame, 1.3, 5)
 
         for (x,y,w,h) in faces:
-            cy = (y + int(h / 2))
-            cx = (x + int(w / 2))
+            cy = (y + int(h/2))
+            cx = (x + int(w/2))
             cv2.rectangle(frame,(x, y),(x+w,y+h),(255,255,0),2)
-            cv2.circle(frame, (x + int(w / 2), y + int(h / 2)), 5, (0,0,255), 2)
-            cv2.line(frame, (x + int(w / 2), 0), (x + int(w / 2), f_rows), (255, 255, 0), 1)
-            cv2.line(frame, (0, y + int(h / 2)), (f_cols, y + int(h / 2)), (255, 255, 0), 1)
+            cv2.circle(frame, (x + int(w/2), y + int(h/2)), 5, (0,155,255), 1)
+            cv2.line(frame, (x + int(w/2), 0), (x + int(w/2), f_rows), (255, 255, 0), 1)
+            cv2.line(frame, (0, y + int(h/2)), (f_cols, y + int(h/2)), (255, 255, 0), 1)
+            cv2.line(frame, (x + int(w/2), y + int(h/2)), (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)/2), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)/2)), (0, 255, 0), 1)
+
+            
 
         # print(cx, cy, end='\r')
-        control_cursor.controlCursor(cx, cy)
+        cc.controlCursor(cx, cy)
 
         cv2.imshow('Camera', frame)
 

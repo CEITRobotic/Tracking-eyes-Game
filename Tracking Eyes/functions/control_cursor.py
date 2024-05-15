@@ -1,15 +1,15 @@
 import pyautogui as pg
 
-print(f"Your computer screen: {pg.size()}")
+lx = 0
+ly = 0
 
-lx = None
-ly = None
+print(f"Your computer screen: {pg.size()}")
 
 def controlCursor(cx, cy):
     global lx, ly
     lx, ly = pg.position()
 
-    print(f"Face position in frame: {cx} {cy} | Cursor position: {lx}, {ly}")
+    print(f"Face position in frame: {cx} {cy} | Cursor position: {lx} {ly}")
 
     # nx, ny = pg.position()
     # if nx != lx and ny != ly:
