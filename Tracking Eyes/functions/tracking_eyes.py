@@ -1,7 +1,7 @@
+# Not finished still in progress
+
 import cv2
 import numpy as np
-
-cap = cv2.VideoCapture(0)
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
@@ -14,25 +14,30 @@ def _detectEyes(img, cascade, gray_frame, f_rows, f_cols, contours):
     right_eye = None
 
     for (x,y,w,h) in eyes:
-        if y > height / 2:
-            cv2.rectangle(img,(x,y),(x+w,y+h),(255,255,0),2)
+        if y + 50 < height / 2:
+            cv2.rectangle(img,(x,y),(x+w,y+h),(255,100,0),2)
             for cnt in contours:
-                (x, y, w, h) = cv2.boundingRect(cnt)
-
-                cv2.drawContours(img, [cnt], -1, (0, 0, 255), 3)
-                cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
-                cv2.line(img, (x + int(w/2), 0), (x + int(w/2), f_rows), (255, 0, 0), 1)
+                (cx, cy, cw, ch) = cv2.boundingRect(cnt)
+                if cy + 50 < ch / 2:
+                    # cv2.drawContours(img, [cnt], -1, (0, 0, 255), 3)
+                    cv2.rectangle(img, (cx, cy), (cx + cw, cy + ch), (0, 255, 0), 2)
+                    cv2.line(img, (cx + int(cw/2), 0), (cx + int(cw/2), f_rows), (255, 0, 0), 1)
+                    cv2.line(img, (0, cy + int(ch/2)), (f_cols, (cy + int(ch/2))), (255, 0, 0), 1)
             pass
-        cv2.line(img, (0, y + int(h/2)), (f_cols, (y + int(h/2))), (255, 0, 0), 1)
+
         eyecenter = x + w / 2  # get the eye center
+
         if eyecenter < width * 0.5:
             left_eye = img[y:y + h, x:x + w]
         else:
             right_eye = img[y:y + h, x:x + w]
     return left_eye, right_eye
 
+
 def openTracking():
+    cap = cv2.VideoCapture(0)
     value = 42
+
     while(cap.isOpened()):
         _, frame = cap.read()
         # frame = frame[269:795, 537:1416]
