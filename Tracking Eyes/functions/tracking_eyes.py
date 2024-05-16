@@ -1,3 +1,5 @@
+# Not finished still in progress
+
 import cv2
 import numpy as np
 
@@ -30,47 +32,6 @@ def _detectEyes(img, cascade, gray_frame, f_rows, f_cols, contours):
         else:
             right_eye = img[y:y + h, x:x + w]
     return left_eye, right_eye
-
-def testVideo():
-    cap = cv2.VideoCapture(r"functions/Test.mp4")
-    value = 42
-    
-    while(cap.isOpened()):
-        _, frame = cap.read()
-        frame = cv2.resize(frame, (270, 480))
-
-        f_rows, f_cols, _ = frame.shape
-
-        gray_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        gray_frame = cv2.GaussianBlur(gray_frame, (7, 7), 0)
-
-        _, threshold = cv2.threshold(gray_frame, value, 255, cv2.THRESH_BINARY_INV)
-        contours, _ = cv2.findContours(threshold, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-        contours = sorted(contours, key=lambda x: cv2.contourArea(x), reverse=True)
-
-        faces = face_cascade.detectMultiScale(gray_frame, 1.3, 5)
-
-        for (x,y,w,h) in faces:
-            cv2.rectangle(frame,(x,y),(x+w,y+h),(255,255,0),2)
-            cv2.line(frame, (x + int(w / 2), 0), (x + int(w / 2), f_rows), (255, 255, 0), 1)
-
-            # gray_face = gray_image[y:y+h, x:x+w]
-            # face = frame[y:y+h, x:x+w]
-            # eyes = eye_cascade.detectMultiScale(gray_face, 1.3, 5)
-
-            _detectEyes(frame, eye_cascade, gray_frame, f_rows, f_cols, contours) 
-
-            # for (ex,ey,ew,eh) in eyes: 
-            #     cv2.rectangle(face,(ex,ey),(ex+ew,ey+eh),(0,225,255),2)
-
-        cv2.imshow('Camera', frame)
-        cv2.imshow('Threshold', threshold)
-
-        if cv2.waitKey(1) == ord('q'):
-            break
- 
-    cap.release()
-    cv2.destroyAllWindows()
 
 
 def openTracking():
