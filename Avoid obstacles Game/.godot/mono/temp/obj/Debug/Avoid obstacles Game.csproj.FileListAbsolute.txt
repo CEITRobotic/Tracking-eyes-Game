@@ -1,0 +1,18 @@
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.csproj.AssemblyReference.cache
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.AssemblyInfoInputs.cache
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.AssemblyInfo.cs
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.sourcelink.json
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\bin\Debug\Avoid obstacles Game.deps.json
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\bin\Debug\Avoid obstacles Game.runtimeconfig.json
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\bin\Debug\Avoid obstacles Game.dll
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\bin\Debug\Avoid obstacles Game.pdb
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\bin\Debug\GodotSharp.dll
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.csproj.CopyComplete
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.dll
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\refint\Avoid obstacles Game.dll
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.pdb
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\Avoid obstacles Game.genruntimeconfig.cache
+C:\Users\Asus\Desktop\Tracking-eyes-Game\Avoid obstacles Game\.godot\mono\temp\obj\Debug\ref\Avoid obstacles Game.dll

@@ -1,14 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyh45cmwxukry"]
+[gd_scene load_steps=4 format=3 uid="uid://dyh45cmwxukry"]
 
 [ext_resource type="Texture2D" uid="uid://3nm2a6rsbaq3" path="res://icon.svg" id="1_f8e68"]
 
+[sub_resource type="CSharpScript" id="CSharpScript_iqcfn"]
+script/source = "using Godot;
+using System;
+
+public class Player : CharacterBody2D
+{
+	// Speed of the character
+	[Export]
+	public float speed = 200f;
+
+	public override void _Ready()
+	{
+		// Hide the mouse cursor (optional)
+		Input.SetMouseMode(Input.MouseMode.Hidden);
+	}
+
+	public override void _PhysicsProcess(float delta)
+	{
+		// Get the global mouse position
+		Vector2 mousePosition = GetGlobalMousePosition();
+
+		// Calculate the horizontal direction vector from the character to the mouse position
+		Vector2 direction = (mousePosition - GlobalPosition).Normalized();
+
+		// Only move in the horizontal direction
+		direction.y = 0;
+
+		// Move the character towards the mouse
+		MoveAndSlide(direction * speed);
+
+		// Optionally, you can rotate the character to face the mouse if needed
+		// Rotation = Mathf.Atan2(direction.y, direction.x);
+	}
+}
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b0ql8"]
+size = Vector2(10.1026, 10.1026)
 
 [node name="Player" type="CharacterBody2D"]
+script = SubResource("CSharpScript_iqcfn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(210, 101)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_f8e68")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(210, 101)
 scale = Vector2(6.335, 6.335)
 shape = SubResource("RectangleShape2D_b0ql8")
