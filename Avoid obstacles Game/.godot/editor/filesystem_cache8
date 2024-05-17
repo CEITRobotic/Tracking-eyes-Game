@@ -1,6 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1715962076
-icon.svg::CompressedTexture2D::1992901401701746628::1715660211::1715660299::1::::<><>::
-main_scene.tscn::PackedScene::5679124041679341432::1715962060::0::1::::<><>::
-::res://Player/::1715961994
-player.tscn::PackedScene::8860059433893339730::1715961994::0::1::::<><>::uid://3nm2a6rsbaq3::::res://icon.svg
+::res://::1715964116
+icon.svg::CompressedTexture2D::1992901401701746628::1715964082::1715964082::1::::<><>::
+main_scene.tscn::PackedScene::5679124041679341432::1715964082::0::1::::<><>::uid://dtw6wal3vo1ny::::res://sprite_2d.tscn
+Sprite2D.gd::GDScript::-1::1715964082::0::1::::<>Sprite2D<>::
+sprite_2d.tscn::PackedScene::8540187923326585914::1715964082::0::1::::<><>::uid://3nm2a6rsbaq3::::res://icon.svg<>res://Sprite2D.gd
+::res://Player/::1715964082
+player.tscn::PackedScene::8860059433893339730::1715964082::0::1::::<><>::uid://3nm2a6rsbaq3::::res://icon.svg
