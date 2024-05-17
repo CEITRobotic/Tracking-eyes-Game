@@ -18,6 +18,7 @@ if %errorlevel% neq 0 (
         pip --version
 
         if not exist "env" (
+          pip install virtualenv
           python -m venv env
         ) else (
           echo Environment already exists
