@@ -21,7 +21,6 @@ pillow==10.3.0
 protobuf==4.25.3
 PyAutoGUI==0.9.54
 pycparser==2.22
-PyGetWindow==0.0.9
 PyMsgBox==1.0.9
 pyparsing==3.1.2
 pyperclip==1.8.2
