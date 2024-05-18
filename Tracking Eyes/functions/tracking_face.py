@@ -35,6 +35,7 @@ def openTracking():
             # Display the x and y axis coordinates near the face
             cv2.putText(frame, f"X: {cx}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
             cv2.putText(frame, f"Y: {cy}", (x + w, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
+            break
 
         # Update cursor position based on face tracking
         cc.controlCursor(cx, cy, int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)/2), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)/2))
