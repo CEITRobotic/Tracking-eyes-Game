@@ -1,3 +1,10 @@
 res://main_scene.tscn
+res://main_scene.gd
 res://sprite_2d.tscn
-res://Sprite2D.gd
+res://object_1.tscn
+res://object_2.tscn
+res://object_3.tscn
+res://object_3.gd
+res://object_1.gd
+res://object_2.gd
+res://CollisionShape2D-3.gd
