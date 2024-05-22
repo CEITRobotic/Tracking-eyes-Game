@@ -1,7 +1,8 @@
+Node
+Node2D
 MeshInstance2D
 CollisionShape2D
 Sprite2D
 StaticBody2D
-Node
 Area2D
 CharacterBody2D

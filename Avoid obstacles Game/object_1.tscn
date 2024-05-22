@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://2us6saukrvgu"]
+
+[ext_resource type="Texture2D" uid="uid://3nm2a6rsbaq3" path="res://icon.svg" id="1_djhh5"]
+
+[sub_resource type="GDScript" id="GDScript_mo8ux"]
+script/source = "extends Sprite2D
+
+var velocity = Vector2.ZERO
+var gravity = 200
+func _ready():
+	set_physics_process(true)
+
+func _physics_process(delta):
+	# Apply gravity to the velocity
+	velocity.y += gravity * delta
+	# Update the position based on the velocity
+	position += velocity * delta
+
+	# Check if the sprite is out of the screen (optional)
+	if position.y > get_viewport_rect().size.y:
+		queue_free() # Remove the sprite if it goes out of the screen
+		
+func _on_Area2D_area_entered(area):
+	if area.is_in_group(\"Sprite2D\"):
+		get_tree().root.game_over()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjr62"]
+size = Vector2(126.694, 129.333)
+
+[node name="object1" type="Sprite2D"]
+position = Vector2(117, 102)
+scale = Vector2(0.765625, 0.75)
+texture = ExtResource("1_djhh5")
+script = SubResource("GDScript_mo8ux")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.65303, -0.666641)
+shape = SubResource("RectangleShape2D_vjr62")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
