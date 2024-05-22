@@ -33,6 +33,6 @@ def controlCursor(cx, cy, sx, sy):
         cursor_y = limit_vertical
         position_y = limit_vertical
 
-    print(f"Face: {cx} {cy} | Cursor: {cursor_x} {cursor_y} | inc_x={position_x}, inc_y={position_y}",end='                    \r')
+    # print(f"Face: {cx} {cy} | Cursor: {cursor_x} {cursor_y} | inc_x={position_x}, inc_y={position_y}",end='                    \r')
 
     pg.moveTo(cursor_x, cursor_y)
