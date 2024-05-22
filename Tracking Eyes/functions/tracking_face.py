@@ -1,14 +1,34 @@
 import cv2
+import threading
+import time
+import keyboard
 from . import control_cursor as cc
+
+isExit = False
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
+def exitWindow():
+    global isExit
+
+    while not isExit:
+        if keyboard.is_pressed('q'):
+            print('Exiting...')
+            isExit = True
+        time.sleep(0.1)
+
 def openTracking():
-    cap = cv2.VideoCapture(0)
+    global isExit
+
     cx = 0 
     cy = 0
+
+    exit_thread = threading.Thread(target=exitWindow)
+    exit_thread.start()
+
+    cap = cv2.VideoCapture(0)
     
-    while(cap.isOpened()):
+    while not isExit:
         title = 'Open Tracking...'
 
         _, frame = cap.read()
@@ -42,9 +62,9 @@ def openTracking():
 
         cv2.imshow('Camera', frame)
 
-        if cv2.waitKey(1) == ord('q'):
-            print("\nExiting...")
-            break
- 
+        cv2.waitKey(5)
+
     cap.release()
     cv2.destroyAllWindows()
+
+    exit_thread.join()
