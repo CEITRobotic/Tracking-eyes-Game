@@ -5,23 +5,32 @@ import keyboard
 from . import control_cursor as cc
 
 isExit = False
+isPause = False
+title = str()
 
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
+def optionsKey():
+    print("Options: \n - 'q' key to exit, \n - 'p' key to pause")
+
 def exitWindow():
-    global isExit
+    global isExit, isPause
 
     while not isExit:
         if keyboard.is_pressed('q'):
             print('Exiting...')
             isExit = True
+        if keyboard.is_pressed('p'):
+            isPause = not isPause
         time.sleep(0.1)
 
 def openTracking():
-    global isExit
+    global isExit, title
 
     cx = 0 
     cy = 0
+
+    optionsKey()
 
     exit_thread = threading.Thread(target=exitWindow)
     exit_thread.start()
@@ -29,8 +38,6 @@ def openTracking():
     cap = cv2.VideoCapture(0)
     
     while not isExit:
-        title = 'Open Tracking...'
-
         _, frame = cap.read()
         frame = cv2.flip(frame, 1)
 
@@ -50,18 +57,23 @@ def openTracking():
             cv2.line(frame, (0, y + int(h/2)), (f_cols, y + int(h/2)), (255, 255, 0), 1)
             cv2.line(frame, (x + int(w/2), y + int(h/2)), (int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)/2), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)/2)), (0, 255, 0), 1)
 
-            cv2.putText(frame, title, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
             # Display the x and y axis coordinates near the face
             cv2.putText(frame, f"X: {cx}", (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
             cv2.putText(frame, f"Y: {cy}", (x + w, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
             break
 
-        # Update cursor position based on face tracking
-        cc.controlCursor(cx, cy, int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)/2), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)/2))
+            # Update cursor position based on face tracking
+            
+        if isPause:
+            cv2.putText(frame, title, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 98, 196), 2)
+            title = 'Pause Tracking...'
+        else:
+            cv2.putText(frame, title, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+            cc.controlCursor(cx, cy, int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)/2), int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT)/2))
+            title = 'Open Tracking...'
 
         cv2.imshow('Camera', frame)
-
         cv2.waitKey(5)
 
     cap.release()
