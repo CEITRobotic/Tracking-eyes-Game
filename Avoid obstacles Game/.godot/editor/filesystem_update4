@@ -1,8 +1,6 @@
 res://main_scene.tscn
-res://main_scene.gd
-res://Player.tscn
 res://Enemy1.tscn
 res://Enemy2.tscn
 res://Enemy3.tscn
-res://Player.gd
 res://EndScene.tscn
+res://Player.tscn

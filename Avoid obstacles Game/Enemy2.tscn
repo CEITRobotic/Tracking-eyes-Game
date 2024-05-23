@@ -27,7 +27,7 @@ func _physics_process(delta):
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6uwfu"]
 size = Vector2(181, 175)
 
-[node name="Enemy2" type="Node2D"]
+[node name="Enemy2" type="RigidBody2D"]
 position = Vector2(27, -158)
 script = SubResource("GDScript_eiqbj")
 
