@@ -11,3 +11,5 @@ func _physics_process(delta):
 	# Clamp the sprite's position within the viewport bounds
 	position.x = clamp(mouse_pos.x, 0, viewport_size.x)
 	position.y = clamp(mouse_pos.y, 0, viewport_size.y)
+
+

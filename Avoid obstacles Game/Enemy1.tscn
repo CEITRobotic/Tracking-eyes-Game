@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch0esqr575rm6"]
+
+[ext_resource type="Texture2D" uid="uid://dvrbiyw0aiu7f" path="res://pic/0ea8bbc35c1ad014d2fd723568a34f17-removebg-preview.png" id="1_vn5ao"]
+
+[sub_resource type="GDScript" id="GDScript_eiqbj"]
+script/source = "extends Node2D
+
+var velocity = Vector2.ZERO
+var gravity = 200
+func _ready():
+	set_physics_process(true)
+
+func _physics_process(delta):
+	# Apply gravity to the velocity
+	velocity.y += gravity * delta
+	# Update the position based on the velocity
+	position += velocity * delta
+
+	# Check if the sprite is out of the screen (optional)
+	if position.y > get_viewport_rect().size.y:
+		queue_free() # Remove the sprite if it goes out of the screen
+	if position.y > get_viewport_rect().size.x:
+		queue_free()	
+
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uwfu"]
+size = Vector2(240, 212)
+
+[node name="Enemy1" type="Node2D"]
+position = Vector2(27, -158)
+script = SubResource("GDScript_eiqbj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(244, 108)
+scale = Vector2(0.779298, 0.6815)
+texture = ExtResource("1_vn5ao")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(243, 107)
+shape = SubResource("RectangleShape2D_6uwfu")

@@ -1,10 +1,8 @@
 res://main_scene.tscn
 res://main_scene.gd
-res://sprite_2d.tscn
-res://object_1.tscn
-res://object_2.tscn
-res://object_3.tscn
-res://object_3.gd
-res://object_1.gd
-res://object_2.gd
-res://CollisionShape2D-3.gd
+res://Player.tscn
+res://Enemy1.tscn
+res://Enemy2.tscn
+res://Enemy3.tscn
+res://Player.gd
+res://EndScene.tscn

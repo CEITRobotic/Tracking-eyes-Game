@@ -1,12 +1,12 @@
 extends Node
 
-var spawn_timer = 0.0
-var spawn_interval = 1.0 # Spawn every 1 second
+var spawn_timer = 0.05
+var spawn_interval = 1.0 # Spawn every 3 second
 
 var packet_scene = [
-	preload("res://object_1.tscn"),
-	preload("res://object_2.tscn"),
-	preload("res://object_3.tscn")
+	preload("res://Enemy1.tscn"),
+	preload("res://Enemy2.tscn"),
+	preload("res://Enemy3.tscn"),
 ]
 
 func _process(delta):
@@ -15,8 +15,15 @@ func _process(delta):
 	
 	# Check if it's time to spawn a new object
 	if spawn_timer >= spawn_interval:
-		spawn_timer = 0.0
+		spawn_timer = -0.5
 		spawn_random_object()
+	
+	var player = $Player
+	var enemy = $Enemy
+
+func game_over():
+	get_tree().change_scene("res://EndScene.tscn")
+	
 
 func spawn_random_object():
 	randomize()
@@ -24,8 +31,8 @@ func spawn_random_object():
 	var scene = packet_scene[x].instantiate()
 	
 	# Get the viewport size
-	var viewport_size = get_viewport().get_visible_rect().size
-	print(viewport_size.x)
+	var viewport_size = Vector2(1920 , 1080)
+	print(x)
 	
 	# Generate a random position along the top edge of the viewport
 	var random_position = Vector2(
@@ -38,3 +45,8 @@ func spawn_random_object():
 	
 	# Add the new object to the scene tree
 	add_child(scene)
+
+func _on_area_2d_body_entered(body):
+	if body.name == "Player":
+		get_tree().reload_current_scene()
+		game_over()

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://danwx55a67vbh"]
+
+[ext_resource type="Texture2D" uid="uid://ca5p6hsc4spj" path="res://pic/Pink and Purple Pixel Illustrative Gaming Youtube Intro.png" id="1_i0cby"]
+
+[node name="EndScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_i0cby")
