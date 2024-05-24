@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "Ot8osEpr9ffj54tI6SvKfhRiuo5U3v1WUPnAEUB9M+F+LmtDmwOkL0ai/gA7qDAau1gRt6VpMDPQi0wD4Z7TkA==",
+  "dgSpecHash": "GZ9P55hBgWxA8mp68loZ0XDOBIeqAIOw3uvBS8mjzP1TW/HI1E3ieg3N33WI+p65LUEF084Uuq+7qJoHhIReuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Asus\\Desktop\\Tracking-eyes-Game\\Avoid obstacles Game\\Avoid obstacles Game.csproj",
+  "projectFilePath": "C:\\Users\\Top-Slayer\\Desktop\\Tracking-eyes-Game\\Avoid obstacles Game\\Avoid obstacles Game.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Asus\\.nuget\\packages\\godot.sourcegenerators\\4.2.2\\godot.sourcegenerators.4.2.2.nupkg.sha512",
-    "C:\\Users\\Asus\\.nuget\\packages\\godotsharp\\4.2.2\\godotsharp.4.2.2.nupkg.sha512",
-    "C:\\Users\\Asus\\.nuget\\packages\\godotsharpeditor\\4.2.2\\godotsharpeditor.4.2.2.nupkg.sha512"
+    "C:\\Users\\Top-Slayer\\.nuget\\packages\\godot.sourcegenerators\\4.2.1\\godot.sourcegenerators.4.2.1.nupkg.sha512",
+    "C:\\Users\\Top-Slayer\\.nuget\\packages\\godotsharp\\4.2.1\\godotsharp.4.2.1.nupkg.sha512",
+    "C:\\Users\\Top-Slayer\\.nuget\\packages\\godotsharpeditor\\4.2.1\\godotsharpeditor.4.2.1.nupkg.sha512",
+    "C:\\Users\\Top-Slayer\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\Top-Slayer\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\Top-Slayer\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512"
   ],
   "logs": []
 }
